@@ -530,14 +530,22 @@ function initMobileMenu() {
   
   if (!toggle || !navLinks) return;
   
-  toggle.addEventListener('click', () => {
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     navLinks.classList.toggle('open');
   });
   
-  document.querySelectorAll('.nav-link').forEach(link => {
+  document.querySelectorAll('.nav-link, .mobile-drawer-item a, .mobile-drawer-item button').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('open');
     });
+  });
+
+  // Cerrar al hacer clic fuera del menú en móvil
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !toggle.contains(e.target)) {
+      navLinks.classList.remove('open');
+    }
   });
 }
 

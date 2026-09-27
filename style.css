@@ -75,6 +75,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 body {
@@ -83,8 +86,10 @@ body {
   color: var(--text-main);
   line-height: 1.65;
   overflow-x: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  width: 100%;
+  max-width: 100vw;
   position: relative;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ==========================================================================
@@ -626,7 +631,7 @@ h1, h2, h3, h4, h5, h6 {
    MARQUEE TICKER INFINITO (CINTA DE TECNOLOGÍAS CONTINUA)
    ========================================================================== */
 .ticker-section {
-  padding: 1.25rem 0;
+  padding: 1.15rem 0;
   background: rgba(16, 24, 39, 0.6);
   border-top: 1px solid var(--bg-card-border);
   border-bottom: 1px solid var(--bg-card-border);
@@ -634,6 +639,9 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 2;
   backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 [data-theme="light"] .ticker-section {
@@ -795,11 +803,16 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-mono);
   font-size: 0.84rem;
   min-height: 280px;
+  overflow-x: hidden;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .term-line {
   margin-bottom: 0.5rem;
   line-height: 1.5;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .term-prompt {
@@ -818,6 +831,8 @@ h1, h2, h3, h4, h5, h6 {
   border-left: 2px solid rgba(56, 189, 248, 0.3);
   margin-top: 0.35rem;
   animation: fadeIn 0.4s ease;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 @keyframes fadeIn {
@@ -1817,8 +1832,10 @@ textarea.form-control {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (TABLETS Y MÓVILES)
+   RESPONSIVE DESIGN (TABLETS Y MÓVILES - OPTIMIZACIÓN VERTICAL 100%)
    ========================================================================== */
+
+/* Breakpoint 1: Tablets y Laptops Pequeñas (<= 992px) */
 @media (max-width: 992px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -1842,66 +1859,528 @@ textarea.form-control {
   }
 }
 
+/* Breakpoint 2: Teléfonos y Tablets Verticales (<= 768px) */
 @media (max-width: 768px) {
-  .nav-links {
-    position: fixed;
-    top: 70px;
-    left: 0;
+  /* Contenedores y márgenes */
+  .container {
+    padding: 0 1.15rem;
     width: 100%;
-    background: var(--bg-dark);
-    border-bottom: 1px solid var(--bg-card-border);
-    flex-direction: column;
-    padding: 1.5rem;
-    gap: 1.25rem;
-    transform: translateY(-150%);
-    transition: transform 0.3s ease;
+    max-width: 100%;
+    box-sizing: border-box;
   }
-  
-  .nav-links.open {
+
+  /* Evitar cualquier desborde por animaciones de entrada horizontal */
+  .reveal-on-scroll[data-reveal="fade-left"],
+  .reveal-on-scroll[data-reveal="fade-right"] {
+    transform: translateY(20px);
+  }
+  .reveal-on-scroll[data-reveal="fade-left"].is-revealed,
+  .reveal-on-scroll[data-reveal="fade-right"].is-revealed {
     transform: translateY(0);
   }
-  
-  .mobile-toggle {
-    display: block;
+
+  /* Barra de Navegación */
+  .navbar {
+    padding: 0.65rem 0;
   }
-  
+
+  .brand-logo {
+    font-size: 1.08rem;
+    gap: 0.5rem;
+  }
+
+  .brand-badge {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  /* Ocultar botones anchos en la barra superior móvil para que no se desborde */
+  .nav-actions .print-cv-btn,
+  .nav-actions .btn-whatsapp {
+    display: none !important;
+  }
+
+  .nav-actions {
+    gap: 0.45rem;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    color: var(--text-main);
+    font-size: 1.3rem;
+  }
+
+  /* Menú desplegable móvil */
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: rgba(10, 14, 23, 0.98);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 1px solid var(--bg-card-border);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    gap: 1.25rem;
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    overflow-y: auto;
+    z-index: 99;
+  }
+
+  [data-theme="light"] .nav-links {
+    background: rgba(240, 244, 248, 0.98);
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .mobile-drawer-item {
+    display: block !important;
+    width: 100%;
+    max-width: 320px;
+    margin-top: 0.25rem;
+  }
+
+  .mobile-drawer-item .btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: auto;
+    padding-top: 5.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .status-badge {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.8rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.85rem, 7.8vw, 2.45rem);
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    min-height: auto;
+    line-height: 1.4;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .hero-tags {
+    gap: 0.4rem;
+  }
+
+  .tech-tag {
+    font-size: 0.76rem;
+    padding: 0.28rem 0.65rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.7rem;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+
   .hero-stats {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    gap: 0.85rem;
+    padding-top: 1.25rem;
   }
-  
-  .skills-grid {
-    grid-template-columns: 1fr;
+
+  .stat-number {
+    font-size: 1.65rem;
   }
-  
-  .certs-grid {
-    grid-template-columns: 1fr;
+
+  .stat-label {
+    font-size: 0.72rem;
   }
-  
-  .timeline-line {
-    left: 14px;
+
+  /* Terminal Card en Móviles */
+  .terminal-card {
+    border-radius: var(--radius-md);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
-  
-  .timeline-node {
-    left: 3px;
+
+  .terminal-header {
+    padding: 0.6rem 0.85rem;
   }
-  
-  .timeline-item {
-    padding-left: 45px;
+
+  .terminal-title {
+    font-size: 0.72rem;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
-  
+
+  .terminal-tabs {
+    padding: 0.2rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .terminal-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .term-tab {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.74rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .terminal-body {
+    padding: 0.9rem 0.85rem;
+    font-size: 0.78rem;
+    min-height: auto;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .term-output {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .avatar-badge-card {
+    padding: 0.75rem 0.85rem;
+    gap: 0.75rem;
+  }
+
+  .avatar-circle {
+    width: 46px;
+    height: 46px;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+  }
+
+  .avatar-info h4 {
+    font-size: 0.9rem;
+  }
+
+  .avatar-info p {
+    font-size: 0.72rem;
+  }
+
+  /* Secciones y Bento Cards */
+  section {
+    padding: 3.5rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .section-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.65rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.65rem, 6.5vw, 2.2rem);
+    word-break: break-word;
+  }
+
+  .section-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .bento-card {
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .about-lead {
+    font-size: 1.02rem;
+    line-height: 1.5;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
   .about-highlights {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
-  
+
+  .highlight-box {
+    padding: 0.85rem;
+  }
+
+  .info-row {
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .soft-pill {
+    font-size: 0.76rem;
+    padding: 0.3rem 0.65rem;
+  }
+
+  /* Filtro de Habilidades: Pestañas Deslizables Touch */
+  .skills-filter-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    padding: 0.25rem 0 0.75rem 0;
+    gap: 0.45rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    scrollbar-width: none;
+  }
+
+  .skills-filter-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .skill-card-head h4 {
+    font-size: 1.05rem;
+  }
+
+  .skill-item-info {
+    font-size: 0.82rem;
+  }
+
+  /* Línea de Tiempo en Móvil */
+  .timeline-line {
+    left: 12px;
+  }
+
+  .timeline-node {
+    left: 1px;
+    width: 22px;
+    height: 22px;
+    top: 4px;
+  }
+
+  .timeline-node-inner {
+    width: 8px;
+    height: 8px;
+  }
+
+  .timeline-item {
+    padding-left: 34px;
+    margin-bottom: 1.85rem;
+  }
+
+  .exp-card {
+    padding: 1.15rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .exp-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
+  }
+
+  .exp-role {
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+
+  .exp-company {
+    font-size: 0.86rem;
+    flex-wrap: wrap;
+  }
+
+  .exp-date-badge {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.65rem;
+  }
+
+  .exp-list li {
+    font-size: 0.85rem;
+    padding-left: 1.15rem;
+    line-height: 1.55;
+  }
+
+  .exp-tag {
+    font-size: 0.72rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  /* Certificaciones y Cursos */
+  .certs-grid {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+    margin-bottom: 2rem;
+  }
+
+  .cert-card h4 {
+    font-size: 1.05rem;
+  }
+
+  .courses-wrapper {
+    padding: 1.15rem 1rem;
+  }
+
+  .courses-title {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+  }
+
+  .courses-chips {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .course-chip {
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+    box-sizing: border-box;
+  }
+
+  /* Grado Académico */
+  .education-banner {
+    padding: 1.25rem 1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
   .edu-left {
     flex-direction: column;
     text-align: center;
+    gap: 0.85rem;
   }
-  
-  .education-banner {
+
+  .edu-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.6rem;
+    margin: 0 auto;
+  }
+
+  .edu-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .edu-info p {
+    font-size: 0.95rem;
+  }
+
+  .edu-meta {
+    font-size: 0.8rem;
+  }
+
+  /* Contacto en Móvil */
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-channel {
+    padding: 0.85rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .channel-left {
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .channel-text p {
+    font-size: 0.92rem;
+    word-break: break-all;
+  }
+
+  .contact-channel .btn {
+    width: 100%;
     justify-content: center;
-    text-align: center;
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+    padding: 0.65rem 0.85rem;
+  }
+}
+
+/* Breakpoint 3: Pantallas Muy Pequeñas (<= 380px) */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .stat-number {
+    font-size: 1.45rem;
+  }
+
+  .timeline-item {
+    padding-left: 30px;
   }
 }
 
