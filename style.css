@@ -264,22 +264,23 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   z-index: 100;
-  padding: 1rem 0;
+  padding: 0.85rem 0;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  background: rgba(10, 14, 23, 0.82);
+  background: rgba(10, 14, 23, 0.85);
   border-bottom: 1px solid var(--bg-card-border);
   transition: var(--transition);
 }
 
 [data-theme="light"] .navbar {
-  background: rgba(240, 244, 248, 0.88);
+  background: rgba(240, 244, 248, 0.9);
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1.5rem;
 }
 
 .brand-logo {
@@ -289,12 +290,14 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   color: var(--text-main);
   font-weight: 800;
-  font-size: 1.25rem;
+  font-size: 1.22rem;
   transition: var(--transition);
+  flex-shrink: 0;
+  margin-right: 2rem; /* Separación generosa respecto a 'Inicio' */
 }
 
 .brand-logo:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .brand-badge {
@@ -313,18 +316,21 @@ h1, h2, h3, h4, h5, h6 {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: center;
+  gap: 1.75rem; /* Espaciado amplio y elegante entre cada link */
   list-style: none;
+  margin: 0 auto;
 }
 
 .nav-link {
   text-decoration: none;
   color: var(--text-muted);
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: 0.93rem;
   transition: var(--transition);
   position: relative;
-  padding: 0.3rem 0;
+  padding: 0.35rem 0.25rem;
+  white-space: nowrap;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -351,7 +357,13 @@ h1, h2, h3, h4, h5, h6 {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
+  flex-shrink: 0;
+  margin-left: 2rem;
+}
+
+.mobile-drawer-item {
+  display: none !important;
 }
 
 /* ==========================================================================
@@ -1834,6 +1846,24 @@ textarea.form-control {
 /* ==========================================================================
    RESPONSIVE DESIGN (TABLETS Y MÓVILES - OPTIMIZACIÓN VERTICAL 100%)
    ========================================================================== */
+
+/* Breakpoint 0: Laptops y Pantallas Medianas (<= 1180px) */
+@media (max-width: 1180px) {
+  .nav-links {
+    gap: 1.15rem;
+  }
+  .nav-link {
+    font-size: 0.88rem;
+  }
+  .brand-logo {
+    margin-right: 1.25rem;
+    font-size: 1.15rem;
+  }
+  .nav-actions {
+    margin-left: 1.25rem;
+    gap: 0.65rem;
+  }
+}
 
 /* Breakpoint 1: Tablets y Laptops Pequeñas (<= 992px) */
 @media (max-width: 992px) {
