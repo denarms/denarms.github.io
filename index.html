@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Denar B. Montaño Sejas | Ingeniero de Sistemas & Soporte TI Especializado</title>
+  <meta name="description" content="Sitio web profesional de Denar B. Montaño Sejas. Ingeniero de Sistemas especializado en Soporte TI N1/N2, Microsoft Intune MDM, Active Directory, Entra ID y ServiceNow.">
+  <meta name="keywords" content="Denar Montaño, Soporte TI, Microinformática, Microsoft Intune, Active Directory, ServiceNow, Repsol, Tigo, Santa Cruz Bolivia">
+  <meta name="author" content="Denar B. Montaño Sejas">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300d2ff'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' fill='%230a0e17' font-family='sans-serif' font-weight='900' font-size='46'>DM</text></svg>">
+
+  <!-- Fuentes Google: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Canvas de Fondo de Red TI (Interactivo) -->
+  <canvas id="network-canvas"></canvas>
+
+  <!-- ==========================================================================
+       BARRA DE NAVEGACIÓN PRINCIPAL
+       ========================================================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#inicio" class="brand-logo">
+        <span class="brand-badge">DM</span>
+        <span>Denar Montaño</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#inicio" class="nav-link">Inicio</a></li>
+        <li><a href="#sobre-mi" class="nav-link">Perfil</a></li>
+        <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+        <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+        <li><a href="#certificaciones" class="nav-link">Certificaciones</a></li>
+        <li><a href="#educacion" class="nav-link">Educación</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Switch Modo Claro / Oscuro -->
+        <button id="theme-toggle" class="btn btn-icon-only" aria-label="Cambiar tema">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <!-- Botón Imprimir/Guardar PDF -->
+        <button class="btn btn-secondary print-cv-btn" title="Descargar o Imprimir CV en formato PDF">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>PDF CV</span>
+        </button>
+
+        <!-- WhatsApp Rápido -->
+        <a href="https://wa.me/59177806866?text=Hola%20Denar,%20vi%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad%20laboral" target="_blank" class="btn btn-whatsapp" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.301-.15-1.78-.879-2.056-.979-.275-.1-.476-.15-.676.15-.2.301-.776.979-.952 1.18-.175.2-.351.226-.652.075-.301-.15-1.27-.468-2.42-1.493-.894-.799-1.498-1.786-1.674-2.087-.175-.301-.019-.464.132-.614.136-.135.301-.351.451-.527.15-.175.2-.301.301-.501.1-.2.05-.376-.025-.526-.075-.15-.676-1.63-.927-2.233-.244-.587-.493-.507-.676-.517-.175-.01-.376-.01-.577-.01s-.527.075-.802.376c-.276.301-1.053 1.029-1.053 2.509 0 1.48 1.078 2.909 1.229 3.109.15.2 2.122 3.24 5.141 4.542.718.31 1.279.495 1.716.634.721.229 1.377.197 1.896.119.579-.087 1.78-.727 2.031-1.43.251-.703.251-1.305.176-1.43-.076-.125-.276-.201-.577-.351z"/>
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.981-1.409C8.423 21.464 10.153 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.63 0-3.15-.487-4.43-1.325l-.317-.207-2.956.837.848-2.884-.226-.328C4.041 14.996 3.5 13.541 3.5 12c0-4.687 3.813-8.5 8.5-8.5s8.5 3.813 8.5 8.5-3.813 8.5-8.5 8.5z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+
+        <!-- Botón Menú Móvil -->
+        <button class="mobile-toggle" aria-label="Abrir menú">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION (PRESENTACIÓN DE ALTO IMPACTO)
+         ========================================================================== -->
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="pulse-dot"></span>
+            <span>Disponible para Oportunidades TI & Proyectos</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hola, soy <span class="gradient-text">Denar B. Montaño Sejas</span>
+          </h1>
+
+          <h2 class="hero-subtitle">
+            <span>Especialista en</span>
+            <span id="typewriter-text" class="gradient-emerald-text">Soporte TI N1/N2</span><span class="typewriter-cursor">|</span>
+          </h2>
+
+          <p class="hero-description">
+            Especializado en administración de dispositivos móviles <strong>Microsoft Intune (MDM)</strong>, gestión de identidades en <strong>Active Directory y Entra ID</strong>, y resolución de incidencias en <strong>ServiceNow</strong>. Más de 5 años optimizando la infraestructura TI y más de 10 años brindando soporte de primer nivel en corporaciones de telecomunicaciones y energía.
+          </p>
+
+          <div class="hero-tags">
+            <span class="tech-tag">🛡️ Microsoft Intune (MDM)</span>
+            <span class="tech-tag">🔑 Active Directory & Entra ID</span>
+            <span class="tech-tag">🎫 ServiceNow (ITSM)</span>
+            <span class="tech-tag">☁️ Microsoft 365 & Defender</span>
+            <span class="tech-tag">🌐 Cisco CCNA & Redes</span>
+            <span class="tech-tag">📊 Power BI & Excel MO-200</span>
+          </div>
+
+          <div class="hero-buttons">
+            <a href="https://wa.me/59177806866?text=Hola%20Denar,%20vi%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20conversar..." target="_blank" class="btn btn-whatsapp" rel="noopener noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.301-.15-1.78-.879-2.056-.979-.275-.1-.476-.15-.676.15-.2.301-.776.979-.952 1.18-.175.2-.351.226-.652.075-.301-.15-1.27-.468-2.42-1.493-.894-.799-1.498-1.786-1.674-2.087-.175-.301-.019-.464.132-.614.136-.135.301-.351.451-.527.15-.175.2-.301.301-.501.1-.2.05-.376-.025-.526-.075-.15-.676-1.63-.927-2.233-.244-.587-.493-.507-.676-.517-.175-.01-.376-.01-.577-.01s-.527.075-.802.376c-.276.301-1.053 1.029-1.053 2.509 0 1.48 1.078 2.909 1.229 3.109.15.2 2.122 3.24 5.141 4.542.718.31 1.279.495 1.716.634.721.229 1.377.197 1.896.119.579-.087 1.78-.727 2.031-1.43.251-.703.251-1.305.176-1.43-.076-.125-.276-.201-.577-.351z"/>
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.981-1.409C8.423 21.464 10.153 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.63 0-3.15-.487-4.43-1.325l-.317-.207-2.956.837.848-2.884-.226-.328C4.041 14.996 3.5 13.541 3.5 12c0-4.687 3.813-8.5 8.5-8.5s8.5 3.813 8.5 8.5-3.813 8.5-8.5 8.5z"/>
+              </svg>
+              <span>Contactar por WhatsApp</span>
+            </a>
+
+            <a href="#contacto" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>Enviar Mensaje</span>
+            </a>
+
+            <button class="btn btn-secondary print-cv-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Descargar / Imprimir CV</span>
+            </button>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-count="5">+5</span>
+              <span class="stat-label">Años Soporte TI</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="10">+10</span>
+              <span class="stat-label">Años Atención Usuarios</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="100">100%</span>
+              <span class="stat-label">Resolución y Calidad</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">N1/N2</span>
+              <span class="stat-label">HelpDesk & Terreno</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terminal IT / SysAdmin Dashboard Widget -->
+        <div class="hero-visual">
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title">denar-sysadmin@it-core ~ [bash]</div>
+              <div style="font-size:0.75rem; color:#10b981;">● Online</div>
+            </div>
+
+            <div class="terminal-tabs">
+              <button class="term-tab active" data-tab="whoami">whoami</button>
+              <button class="term-tab" data-tab="services">servicios.sh</button>
+              <button class="term-tab" data-tab="infra">infraestructura.log</button>
+              <button class="term-tab" data-tab="contact">contacto.md</button>
+            </div>
+
+            <div class="terminal-body" id="terminal-body">
+              <div class="term-line"><span class="term-prompt">denar@sysadmin:~$</span> <span class="term-cmd">whoami --profile</span></div>
+              <div class="term-output">
+                • <strong>Nombre:</strong> Denar B. Montaño Sejas<br>
+                • <strong>Título:</strong> Ingeniero de Sistemas (UTEPSA)<br>
+                • <strong>Rol Principal:</strong> Soporte TI N1/N2 & Microinformática Especializada<br>
+                • <strong>Ubicación:</strong> Santa Cruz, Bolivia (Disponible presencial / remoto / híbrido)<br>
+                • <strong>Estado:</strong> <span class="status-ok">● LISTO PARA NUEVAS OPORTUNIDADES</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Avatar Card Flotante -->
+          <div class="avatar-badge-card">
+            <div class="avatar-circle">
+              <img src="foto.jpg" alt="Denar B. Montaño Sejas" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" onload="this.style.display='block'; this.nextElementSibling.style.display='none';" style="display:none; width:100%; height:100%; object-fit:cover; border-radius:50%;">
+              <span id="avatar-fallback" style="display:flex; align-items:center; justify-content:center; width:100%; height:100%;">DM</span>
+            </div>
+            <div class="avatar-info">
+              <h4>Denar B. Montaño Sejas</h4>
+              <p>Santa Cruz, Bolivia • Repsol E&P / DIMA • Tigo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CINTA DE MARQUEE INFINITO (TECNOLOGÍAS & STACK DINÁMICO)
+         ========================================================================== -->
+    <section class="ticker-section">
+      <div class="ticker-track">
+        <div class="ticker-items">
+          <div class="ticker-item"><span class="ticker-dot"></span> Microsoft Intune (MDM)</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Active Directory & Entra ID</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> ServiceNow ITSM</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Salas Cisco & Logitech Video</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Microsoft Defender for Endpoint</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Cisco CCNA 200-301</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Power BI Dashboards</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Excel Associate MO-200</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Windows Server & Linux</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> CompTIA A+ Core 1</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> ManageEngine Desktop Central</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Soporte HelpDesk N1 / N2</div>
+        </div>
+        <div class="ticker-items">
+          <div class="ticker-item"><span class="ticker-dot"></span> Microsoft Intune (MDM)</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Active Directory & Entra ID</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> ServiceNow ITSM</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Salas Cisco & Logitech Video</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Microsoft Defender for Endpoint</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Cisco CCNA 200-301</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Power BI Dashboards</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Excel Associate MO-200</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Windows Server & Linux</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> CompTIA A+ Core 1</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> ManageEngine Desktop Central</div>
+          <div class="ticker-item"><span class="ticker-dot"></span> Soporte HelpDesk N1 / N2</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN SOBRE MÍ / PERFIL PROFESIONAL (BENTO GRID)
+         ========================================================================== -->
+    <section id="sobre-mi">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Perfil Profesional</span>
+          <h2 class="section-title">Experiencia Sólida en <span class="gradient-text">Infraestructura y Soporte TI</span></h2>
+          <p class="section-subtitle">
+            Ingeniero de Sistemas enfocado en la continuidad operativa, seguridad del endpoint y la mejor experiencia para el usuario final.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Tarjeta Principal de Perfil -->
+          <div class="bento-card about-main reveal-on-scroll" data-reveal="fade-left">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <p class="about-lead">
+              Ingeniero de Sistemas con más de 5 años de experiencia en soporte técnico TI y más de 10 años en atención al usuario en entornos corporativos exigentes.
+            </p>
+            <p class="about-text">
+              Especializado en soporte de microinformática de primer y segundo nivel (N1/N2), administración de dispositivos móviles Android e iOS con Microsoft Intune (MDM), gestión de usuarios en Active Directory y Entra ID, y gestión de incidencias en ServiceNow. Amplia experiencia en despliegue masivo de equipos, gestión preventiva de parches y actualizaciones, control riguroso de licencias, inventario de activos TI y soporte a salas corporativas de videoconferencia de alta disponibilidad.
+            </p>
+
+            <div class="about-highlights">
+              <div class="highlight-box">
+                <span class="highlight-icon">🛡️</span>
+                <div>
+                  <h5>Seguridad & MDM</h5>
+                  <p>Cumplimiento de políticas y Microsoft Defender for Endpoint en flotas Android e iOS.</p>
+                </div>
+              </div>
+              <div class="highlight-box">
+                <span class="highlight-icon">⚡</span>
+                <div>
+                  <h5>Resolución N1 / N2</h5>
+                  <p>Trazabilidad rigurosa y cumplimiento de SLAs críticos en ServiceNow, OTRS y Tivoli.</p>
+                </div>
+              </div>
+              <div class="highlight-box">
+                <span class="highlight-icon">📊</span>
+                <div>
+                  <h5>Control & Dashboards</h5>
+                  <p>Gestión de activos, licenciamiento y dashboards analíticos en Power BI y Excel.</p>
+                </div>
+              </div>
+              <div class="highlight-box">
+                <span class="highlight-icon">🤝</span>
+                <div>
+                  <h5>Enfoque Humano y Empatía</h5>
+                  <p>Resolución ágil de conflictos, pensamiento crítico y comunicación clara con el usuario.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Lateral: Datos Clave & Habilidades Blandas -->
+          <div class="about-side reveal-on-scroll" data-reveal="fade-right">
+            <!-- Ubicación y Disponibilidad -->
+            <div class="bento-card reveal-on-scroll" data-reveal="fade-up">
+              <div class="card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <h4 style="margin-bottom: 0.75rem;">Ubicación & Contacto</h4>
+              <div class="info-row">
+                <span class="info-label">📍 Ciudad:</span>
+                <span class="info-val">Santa Cruz, Bolivia</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">📱 Teléfono:</span>
+                <span class="info-val">+591 77806866</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">✉️ Email:</span>
+                <span class="info-val">denarms@gmail.com</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">🌐 Modalidad:</span>
+                <span class="info-val">Presencial / Híbrido / Remoto</span>
+              </div>
+            </div>
+
+            <!-- Idiomas y Habilidades Blandas -->
+            <div class="bento-card reveal-on-scroll" data-reveal="fade-up">
+              <div class="card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+              <h4 style="margin-bottom: 0.5rem;">Idiomas</h4>
+              <div class="info-row">
+                <span class="info-label">Español:</span>
+                <span class="info-val">Nativo (100%)</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Inglés:</span>
+                <span class="info-val">Intermedio</span>
+              </div>
+
+              <h4 style="margin-top: 1.25rem; margin-bottom: 0.5rem;">Habilidades Blandas</h4>
+              <div class="soft-skills-cloud">
+                <span class="soft-pill">Pensamiento crítico</span>
+                <span class="soft-pill">Empatía</span>
+                <span class="soft-pill">Resolución de conflictos</span>
+                <span class="soft-pill">Organización</span>
+                <span class="soft-pill">Autonomía</span>
+                <span class="soft-pill">Creatividad</span>
+                <span class="soft-pill">Trabajo en equipo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN HABILIDADES TÉCNICAS (CON FILTROS INTERACTIVOS)
+         ========================================================================== -->
+    <section id="habilidades">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Stack & Competencias</span>
+          <h2 class="section-title">Habilidades <span class="gradient-text">Técnicas Especializadas</span></h2>
+          <p class="section-subtitle">
+            Dominios tecnológicos avalados por la práctica diaria en entornos de misión crítica corporativa.
+          </p>
+        </div>
+
+        <!-- Filtros Rápidos -->
+        <div class="skills-filter-nav">
+          <button class="filter-btn active" data-filter="all">Todas las Habilidades</button>
+          <button class="filter-btn" data-filter="endpoints">Endpoints & MDM</button>
+          <button class="filter-btn" data-filter="itsm">Mesa de Ayuda (ITSM)</button>
+          <button class="filter-btn" data-filter="systems">Sistemas & Redes</button>
+          <button class="filter-btn" data-filter="productivity">M365 & Colaboración</button>
+          <button class="filter-btn" data-filter="hardware">Hardware & Video</button>
+          <button class="filter-btn" data-filter="dev">Programación & BD</button>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Card 1: Endpoints & MDM -->
+          <div class="bento-card skill-category-card reveal-on-scroll" data-reveal="fade-up" data-category="endpoints">
+            <div class="skill-card-head">
+              <div class="card-icon" style="margin-bottom:0;">📱</div>
+              <h4>Endpoints & MDM</h4>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Microsoft Intune (MDM Android / iOS)</span><span>Avanzado</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 95%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Active Directory & Entra ID</span><span>Avanzado</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 92%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Microsoft Defender for Endpoint</span><span>Avanzado</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 88%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>ManageEngine Desktop Central</span><span>Intermedio/Alto</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 85%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Mesa de Ayuda (ITSM) -->
+          <div class="bento-card skill-category-card reveal-on-scroll" data-reveal="fade-up" data-category="itsm">
+            <div class="skill-card-head">
+              <div class="card-icon" style="margin-bottom:0;">🎫</div>
+              <h4>Mesa de Ayuda (ITSM)</h4>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info"><span>ServiceNow (Incidentes, SLAs, Trazabilidad)</span><span>Avanzado</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 95%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>OTRS & Tivoli</span><span>Avanzado</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 90%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Zendesk & Vista</span><span>Intermedio/Alto</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 85%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Soporte Remoto (VNC / Desktop Central)</span><span>Avanzado</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 92%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Sistemas Operativos & Redes -->
+          <div class="bento-card skill-category-card reveal-on-scroll" data-reveal="fade-up" data-category="systems">
+            <div class="skill-card-head">
+              <div class="card-icon" style="margin-bottom:0;">💻</div>
+              <h4>Sistemas & Redes</h4>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Windows 10 / 11 & Windows Server</span><span>Avanzado</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 95%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Linux Server & Administrador</span><span>Intermedio</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 78%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Redes CCNA (Cisco 200-301)</span><span>Intermedio/Alto</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 82%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Cableado Estructurado & Racks</span><span>Avanzado</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 88%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Ofimática y Colaboración M365 -->
+          <div class="bento-card skill-category-card reveal-on-scroll" data-reveal="fade-up" data-category="productivity">
+            <div class="skill-card-head">
+              <div class="card-icon" style="margin-bottom:0;">☁️</div>
+              <h4>M365 & Colaboración</h4>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Microsoft 365 (Outlook, Teams, SharePoint)</span><span>Avanzado</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 95%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Excel Avanzado (Certificado MO-200)</span><span>Especialista</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 95%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Power BI (Dashboards e Inventarios)</span><span>Intermedio/Alto</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 84%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Gestión de Licenciamiento de Software</span><span>Avanzado</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 90%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Hardware & Videoconferencia -->
+          <div class="bento-card skill-category-card reveal-on-scroll" data-reveal="fade-up" data-category="hardware">
+            <div class="skill-card-head">
+              <div class="card-icon" style="margin-bottom:0;">🛠️</div>
+              <h4>Hardware & Multimedia</h4>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Salas Cisco, Tandberg & Logitech</span><span>Avanzado</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 90%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Diagnóstico, Ensamblaje & Laptops/PCs</span><span>Experto</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 96%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Impresoras, Proyectores & Suministros</span><span>Experto</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 94%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>CCTV & Cámaras de Seguridad</span><span>Intermedio</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 80%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Programación & Bases de Datos -->
+          <div class="bento-card skill-category-card reveal-on-scroll" data-reveal="fade-up" data-category="dev">
+            <div class="skill-card-head">
+              <div class="card-icon" style="margin-bottom:0;">💾</div>
+              <h4>Desarrollo & BD</h4>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-item-info"><span>SQL Server (Master & Consultas)</span><span>Avanzado</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 85%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>Python & Scripting</span><span>Intermedio</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 78%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>C# & Java</span><span>Intermedio</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 75%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-info"><span>PHP, JavaScript & Dart</span><span>Intermedio</span></div>
+                <div class="skill-progress-bg"><div class="skill-progress-bar" style="width: 72%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN EXPERIENCIA PROFESIONAL (TIMELINE DETALLADA)
+         ========================================================================== -->
+    <section id="experiencia">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Trayectoria Laboral</span>
+          <h2 class="section-title">Experiencia <span class="gradient-text">Profesional Corporativa</span></h2>
+          <p class="section-subtitle">
+            Historial de impacto demostrado en empresas líderes de energía y telecomunicaciones en Bolivia.
+          </p>
+        </div>
+
+        <div class="experience-timeline">
+          <div class="timeline-line"></div>
+
+          <!-- Puesto 1: Repsol E&P Bolivia (Actual) -->
+          <div class="timeline-item current reveal-on-scroll" data-reveal="fade-up">
+            <div class="timeline-node">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-role">Técnico de Soporte TI – Microinformática (HelpDesk)</h3>
+                  <div class="exp-company">
+                    <span>🏢 Repsol E&P Bolivia S.A. (consultor externo vía DIMA)</span>
+                    <span>• Santa Cruz, Bolivia</span>
+                  </div>
+                </div>
+                <span class="exp-date-badge active-job">Mayo 2024 – Actualidad</span>
+              </div>
+
+              <ul class="exp-list">
+                <li>Brindo soporte técnico N1/N2 presencial y remoto a usuarios en hardware, software y red, gestionando y priorizando incidencias y requerimientos en <strong>ServiceNow</strong> con rigurosa trazabilidad y cumplimiento de SLAs.</li>
+                <li>Instalo, configuro y despliego masivamente PCs, laptops y workstations corporativas con software base y políticas empresariales.</li>
+                <li>Administro dispositivos móviles corporativos Android e iOS mediante <strong>Microsoft Intune (MDM)</strong>, garantizando el cumplimiento de <strong>Microsoft Defender for Endpoint</strong>.</li>
+                <li>Mantengo y audito la base de usuarios y grupos de seguridad en <strong>Active Directory y Entra ID</strong>.</li>
+                <li>Planifico y ejecuto actualizaciones de software corporativo y despliegue de parches de seguridad, analizando impacto y riesgos antes de su distribución.</li>
+                <li>Controlo el inventario de activos TI en el sistema corporativo para programar renovación por obsolescencia y hago seguimiento a vencimientos de licencias.</li>
+                <li>Gestiono equipos en reparación y garantías técnicas coordinando directamente con proveedores de hardware hasta su puesta en marcha.</li>
+                <li>Soporte y operación técnica en salas de videoconferencia corporativa (<strong>Cisco, Tandberg, Logitech</strong>) y soporte técnico a eventos ejecutivos externos.</li>
+                <li>Elaboro y ejecuto planes de mantenimiento preventivo y correctivo de equipos, proyectores e impresoras en todas las locaciones de la compañía.</li>
+                <li>Desarrollé dashboards automatizados en Excel y Power BI para el control de inventario de tóner, cartuchos y préstamo de accesorios TI.</li>
+                <li>Soporte técnico avanzado a usuarios en el ecosistema <strong>Microsoft 365</strong> (Outlook, Teams, SharePoint, Excel) y generación de reportes en <strong>Power BI</strong>.</li>
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">ServiceNow</span>
+                <span class="exp-tag">Microsoft Intune (MDM)</span>
+                <span class="exp-tag">Entra ID</span>
+                <span class="exp-tag">Active Directory</span>
+                <span class="exp-tag">Microsoft Defender</span>
+                <span class="exp-tag">Cisco/Logitech Video</span>
+                <span class="exp-tag">Power BI</span>
+                <span class="exp-tag">Excel Dashboards</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Puesto 2: Tigo (Soporte TI HelpDesk) -->
+          <div class="timeline-item reveal-on-scroll" data-reveal="fade-up">
+            <div class="timeline-node">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-role">Técnico de Soporte TI (HelpDesk)</h3>
+                  <div class="exp-company">
+                    <span>🏢 Tigo</span>
+                    <span>• Santa Cruz, Bolivia</span>
+                  </div>
+                </div>
+                <span class="exp-date-badge">Enero 2021 – Febrero 2024</span>
+              </div>
+
+              <ul class="exp-list">
+                <li>Brindé soporte técnico N1 presencial y remoto a usuarios internos en hardware, software, conectividad y periféricos, guiándolos en la resolución y escalando casos críticos.</li>
+                <li>Registro, clasificación y seguimiento de incidencias y requerimientos en herramientas de mesa de ayuda (<strong>OTRS, Tivoli</strong>), cumpliendo con los tiempos pactados.</li>
+                <li>Realicé soporte remoto ágil mediante <strong>VNC y ManageEngine Desktop Central</strong>, reduciendo significativamente la necesidad de traslados presenciales.</li>
+                <li>Administración de cuentas de usuario y grupos en <strong>Active Directory</strong>: altas, bajas, desbloqueos y restablecimiento seguro de contraseñas.</li>
+                <li>Instalación y configuración de equipos nuevos (PCs y laptops), sistemas operativos, software corporativo y migración de perfiles de usuario.</li>
+                <li>Soporte técnico integral a usuarios en Microsoft Office, Outlook y Teams, resolviendo problemas de sincronización e indexación de correos.</li>
+                <li>Mantenimiento preventivo y correctivo de hardware de laptops, computadoras de escritorio e impresoras, incluyendo diagnóstico y reemplazo de componentes dañados.</li>
+                <li>Gestión del inventario de repuestos, suministros y equipos informáticos coordinando compras con proveedores.</li>
+                <li>Análisis de fallas recurrentes y elaboración de documentación de bases de conocimiento técnico para optimizar los procesos del equipo de soporte.</li>
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">OTRS</span>
+                <span class="exp-tag">Tivoli</span>
+                <span class="exp-tag">Desktop Central</span>
+                <span class="exp-tag">VNC</span>
+                <span class="exp-tag">Active Directory</span>
+                <span class="exp-tag">Windows 10/11</span>
+                <span class="exp-tag">M365</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Puesto 3: Tigo (Asesor Experto Contact Center) -->
+          <div class="timeline-item reveal-on-scroll" data-reveal="fade-up">
+            <div class="timeline-node">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-role">Asesor Experto – Contact Center</h3>
+                  <div class="exp-company">
+                    <span>🏢 Tigo</span>
+                    <span>• Santa Cruz, Bolivia</span>
+                  </div>
+                </div>
+                <span class="exp-date-badge">Septiembre 2018 – Enero 2021</span>
+              </div>
+
+              <ul class="exp-list">
+                <li>Atención técnica de casos escalados sobre servicios de telecomunicaciones (internet fijo y móvil por fibra/HFC, televisión por cable y telefonía).</li>
+                <li>Diagnóstico remoto y guía experta al cliente en la configuración de equipos de red (módems, routers, decodificadores y repetidores).</li>
+                <li>Resolución de incidentes de alta complejidad derivados por el primer nivel, brindando capacitación técnica de apoyo a los compañeros del equipo.</li>
+                <li>Registro y trazabilidad exhaustiva en sistemas CRM y plataformas de ticketing corporativo.</li>
+                <li>Coordinación de despacho y visitas técnicas con cuadrillas de campo cuando se requería intervención física en la acometida.</li>
+                <li>Gestión y resolución de quejas y reclamos con altos índices de satisfacción del cliente (CSAT) y cumplimiento de tiempos de respuesta.</li>
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Diagnóstico Telecom</span>
+                <span class="exp-tag">Routers & Módems</span>
+                <span class="exp-tag">CRM Corporativo</span>
+                <span class="exp-tag">Resolución de Conflictos</span>
+                <span class="exp-tag">Calidad de Servicio</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Puesto 4: Tigo (Agente de Backoffice) -->
+          <div class="timeline-item reveal-on-scroll" data-reveal="fade-up">
+            <div class="timeline-node">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-role">Agente de Backoffice</h3>
+                  <div class="exp-company">
+                    <span>🏢 Tigo</span>
+                    <span>• Santa Cruz, Bolivia</span>
+                  </div>
+                </div>
+                <span class="exp-date-badge">Julio 2017 – Agosto 2018</span>
+              </div>
+
+              <ul class="exp-list">
+                <li>Análisis y resolución de reclamos y requerimientos de clientes derivados de diferentes canales corporativos.</li>
+                <li>Gestión de ajustes, validaciones y actualización de cuentas y servicios en bases de datos internas.</li>
+                <li>Coordinación inter-áreas entre departamentos técnicos, comerciales y de facturación para la solución de casos complejos.</li>
+                <li>Elaboración de reportes de control y seguimiento operativo para la supervisión del área.</li>
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Gestión de Cuentas</span>
+                <span class="exp-tag">Coordinación Inter-áreas</span>
+                <span class="exp-tag">Reportes</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Puesto 5: Tigo (Operador de Call Center) -->
+          <div class="timeline-item reveal-on-scroll" data-reveal="fade-up">
+            <div class="timeline-node">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-role">Operador de Call Center</h3>
+                  <div class="exp-company">
+                    <span>🏢 Tigo</span>
+                    <span>• Santa Cruz, Bolivia</span>
+                  </div>
+                </div>
+                <span class="exp-date-badge">Mayo 2014 – Junio 2017</span>
+              </div>
+
+              <ul class="exp-list">
+                <li>Gestión de alto volumen de llamadas técnicas y comerciales resolviendo dudas en el primer contacto (FCR).</li>
+                <li>Soporte técnico básico en conectividad de internet, telefonía celular y servicios de televisión por cable.</li>
+                <li>Cumplimiento constante de métricas de calidad de atención, empatía y tiempo promedio de operación (TMO).</li>
+              </ul>
+
+              <div class="exp-tags">
+                <span class="exp-tag">Atención al Usuario</span>
+                <span class="exp-tag">Soporte Técnico Básico</span>
+                <span class="exp-tag">Métricas de Calidad</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN CERTIFICACIONES Y FORMACIÓN ESPECIALIZADA
+         ========================================================================== -->
+    <section id="certificaciones">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Acreditaciones</span>
+          <h2 class="section-title">Certificaciones & <span class="gradient-text">Exámenes Oficiales</span></h2>
+          <p class="section-subtitle">
+            Conocimientos validados por estándares de la industria tecnológica internacional.
+          </p>
+        </div>
+
+        <div class="certs-grid">
+          <!-- Cert 1 -->
+          <div class="bento-card cert-card reveal-on-scroll" data-reveal="zoom-in">
+            <span class="cert-badge-type">Acreditación Oficial</span>
+            <h4>Microsoft Office Specialist: Excel Associate</h4>
+            <p><strong>Examen MO-200</strong> (Office 2019 / M365) • Dominio de funciones avanzadas, tablas dinámicas y análisis de datos en hojas de cálculo corporativas.</p>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="bento-card cert-card reveal-on-scroll" data-reveal="zoom-in">
+            <span class="cert-badge-type">Examen Especializado</span>
+            <h4>Microsoft 365 Endpoint Administrator</h4>
+            <p><strong>Examen MD-102</strong> • Configuración de directivas de cumplimiento, despliegue de perfiles en Microsoft Intune y administración integral de identidades y endpoints.</p>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="bento-card cert-card reveal-on-scroll" data-reveal="zoom-in">
+            <span class="cert-badge-type">Examen de Infraestructura</span>
+            <h4>CompTIA A+ Core 1</h4>
+            <p><strong>Examen de Hardware y Redes</strong> • Diagnóstico profundo de hardware, componentes informáticos, virtualización básica y resolución de fallas en redes de datos.</p>
+          </div>
+        </div>
+
+        <!-- Cursos y Capacitación Continua -->
+        <div class="courses-wrapper reveal-on-scroll" data-reveal="fade-up">
+          <h3 class="courses-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+            <span>Cursos y Capacitación Técnica Especializada</span>
+          </h3>
+
+          <div class="courses-chips">
+            <div class="course-chip">🌐 Cisco CCNA 200-301</div>
+            <div class="course-chip">🖥️ Administración de Servidores Linux & Windows Server</div>
+            <div class="course-chip">🔌 Cableado Estructurado y Configuración de Recursos (2023)</div>
+            <div class="course-chip">💾 Master en SQL Server</div>
+            <div class="course-chip">📊 Power BI: Análisis de Datos & Business Intelligence</div>
+            <div class="course-chip">📡 Administración de Redes de Computadoras</div>
+            <div class="course-chip">⚙️ Ensamblaje y Mantenimiento de Computadoras</div>
+            <div class="course-chip">📹 Cámaras de Seguridad y Videovigilancia (CCTV)</div>
+            <div class="course-chip">📱 Reparación de Teléfonos Móviles</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN EDUCACIÓN UNIVERSITARIA
+         ========================================================================== -->
+    <section id="educacion">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Formación Superior</span>
+          <h2 class="section-title">Grado <span class="gradient-text">Académico</span></h2>
+        </div>
+
+        <div class="education-banner reveal-on-scroll" data-reveal="fade-up">
+          <div class="edu-left">
+            <div class="edu-icon">🎓</div>
+            <div class="edu-info">
+              <h3>Ingeniería de Sistemas</h3>
+              <p>Universidad de Tecnología y Empresa (UTEPSA)</p>
+              <div class="edu-meta">
+                <span>📍 Santa Cruz, Bolivia</span> • <span>Graduado / Titulado: Noviembre 2023</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="edu-right">
+            <span class="status-badge" style="background:rgba(0,210,255,0.12); border-color:rgba(0,210,255,0.35); color:var(--primary);">
+              Título en Provisión Nacional
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN CONTACTO Y ACCIÓN RÁPIDA
+         ========================================================================== -->
+    <section id="contacto">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Comunícate</span>
+          <h2 class="section-title">Iniciemos una <span class="gradient-text">Conversación</span></h2>
+          <p class="section-subtitle">
+            ¿Buscas un profesional para liderar el soporte técnico TI, administración de endpoints o gestión de microinformática? Contáctame de inmediato.
+          </p>
+        </div>
+
+        <div class="contact-container">
+          <!-- Canales Directos -->
+          <div class="contact-info-card reveal-on-scroll" data-reveal="fade-left">
+            <!-- Canal WhatsApp -->
+            <a href="https://wa.me/59177806866?text=Hola%20Denar,%20vi%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad%20laboral" target="_blank" class="contact-channel" rel="noopener noreferrer">
+              <div class="channel-left">
+                <div class="channel-icon icon-whatsapp">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.301-.15-1.78-.879-2.056-.979-.275-.1-.476-.15-.676.15-.2.301-.776.979-.952 1.18-.175.2-.351.226-.652.075-.301-.15-1.27-.468-2.42-1.493-.894-.799-1.498-1.786-1.674-2.087-.175-.301-.019-.464.132-.614.136-.135.301-.351.451-.527.15-.175.2-.301.301-.501.1-.2.05-.376-.025-.526-.075-.15-.676-1.63-.927-2.233-.244-.587-.493-.507-.676-.517-.175-.01-.376-.01-.577-.01s-.527.075-.802.376c-.276.301-1.053 1.029-1.053 2.509 0 1.48 1.078 2.909 1.229 3.109.15.2 2.122 3.24 5.141 4.542.718.31 1.279.495 1.716.634.721.229 1.377.197 1.896.119.579-.087 1.78-.727 2.031-1.43.251-.703.251-1.305.176-1.43-.076-.125-.276-.201-.577-.351z"/>
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2 22l4.981-1.409C8.423 21.464 10.153 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.63 0-3.15-.487-4.43-1.325l-.317-.207-2.956.837.848-2.884-.226-.328C4.041 14.996 3.5 13.541 3.5 12c0-4.687 3.813-8.5 8.5-8.5s8.5 3.813 8.5 8.5-3.813 8.5-8.5 8.5z"/>
+                  </svg>
+                </div>
+                <div class="channel-text">
+                  <h5>WhatsApp Directo</h5>
+                  <p>+591 77806866</p>
+                </div>
+              </div>
+              <span class="btn btn-whatsapp" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Chatear</span>
+            </a>
+
+            <!-- Canal Correo con Copia Rápida -->
+            <div class="contact-channel">
+              <div class="channel-left">
+                <div class="channel-icon icon-email">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="channel-text">
+                  <h5>Correo Electrónico</h5>
+                  <p>denarms@gmail.com</p>
+                </div>
+              </div>
+              <button class="btn btn-secondary copy-email-btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" title="Copiar correo">
+                Copiar
+              </button>
+            </div>
+
+            <!-- Canal Ubicación -->
+            <div class="contact-channel">
+              <div class="channel-left">
+                <div class="channel-icon icon-location">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="channel-text">
+                  <h5>Residencia Actual</h5>
+                  <p>Santa Cruz, Bolivia</p>
+                </div>
+              </div>
+              <span class="exp-date-badge" style="font-size:0.75rem;">Disponible</span>
+            </div>
+
+            <!-- Botón PDF Destacado -->
+            <button class="btn btn-primary print-cv-btn" style="width: 100%; margin-top: 0.5rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+              </svg>
+              <span>Generar / Imprimir CV en PDF Oficial</span>
+            </button>
+          </div>
+
+          <!-- Formulario de Mensaje Rápido -->
+          <div class="bento-card reveal-on-scroll" data-reveal="fade-right">
+            <h3 style="margin-bottom: 1.25rem;">Envíame un Mensaje Directo</h3>
+            <form id="quick-contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="form-name">Tu Nombre o Empresa:</label>
+                <input type="text" id="form-name" class="form-control" placeholder="Ej. Carlos Mendoza (Repsol / Tigo / Empresa)" required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-email">Tu Correo Electrónico:</label>
+                <input type="email" id="form-email" class="form-control" placeholder="nombre@empresa.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="form-message">Mensaje o Propuesta:</label>
+                <textarea id="form-message" class="form-control" placeholder="Hola Denar, nos gustaría concertar una entrevista contigo para la posición de..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                <span>Enviar Propuesta</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Denar B. Montaño Sejas</strong> — Ingeniero de Sistemas & Especialista en Soporte TI N1/N2</p>
+      <p style="color: var(--text-dim); font-size: 0.8rem;">
+        Santa Cruz, Bolivia • +591 77806866 • <a href="mailto:denarms@gmail.com" style="color: var(--primary); text-decoration: none;">denarms@gmail.com</a>
+      </p>
+      <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--text-dim);">
+        Diseñado con tecnologías web modernas de alto rendimiento, efectos visuales de infraestructura y soporte PDF integrado.
+      </p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
