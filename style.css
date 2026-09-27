@@ -355,6 +355,12 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   font-size: 0.92rem;
   margin-bottom: 32px;
 }
+.meta-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.meta-link:hover { color: var(--accent); }
 .hero-actions {
   display: flex;
   gap: 14px;
@@ -383,6 +389,11 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
   color: var(--text);
 }
 .btn-ghost:hover { border-color: var(--accent); }
+.btn-linkedin {
+  background: #0a66c2;
+  color: #fff;
+}
+.btn-linkedin:hover { box-shadow: 0 12px 24px -10px #0a66c2; }
 
 .scroll-cue {
   display: flex;
