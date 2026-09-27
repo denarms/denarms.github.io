@@ -367,6 +367,107 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
+   BADGES Y LOGOS DE EMPRESAS Y TECNOLOGÍAS
+   ========================================================================== */
+.tech-icon-svg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.company-logo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.86rem;
+  vertical-align: middle;
+  transition: var(--transition-bounce);
+}
+
+.company-logo-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.repsol-badge {
+  background: rgba(255, 89, 0, 0.14);
+  border: 1px solid rgba(255, 89, 0, 0.4);
+  color: #ff7733;
+}
+
+.tigo-badge {
+  background: rgba(0, 55, 125, 0.25);
+  border: 1px solid rgba(0, 114, 255, 0.45);
+  color: #38bdf8;
+}
+
+.utepsa-badge {
+  background: rgba(2, 132, 199, 0.14);
+  border: 1px solid rgba(2, 132, 199, 0.4);
+  color: #38bdf8;
+}
+
+.cert-logo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.cert-logo-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition-bounce);
+}
+
+.cert-card:hover .cert-logo-box {
+  transform: scale(1.08) rotate(3deg);
+}
+
+.cert-logo-box.excel {
+  background: rgba(16, 124, 65, 0.15);
+  border: 1px solid rgba(16, 124, 65, 0.4);
+  box-shadow: 0 4px 12px rgba(16, 124, 65, 0.2);
+}
+
+.cert-logo-box.microsoft {
+  background: rgba(0, 120, 212, 0.15);
+  border: 1px solid rgba(0, 120, 212, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 120, 212, 0.2);
+}
+
+.cert-logo-box.comptia {
+  background: rgba(200, 32, 45, 0.15);
+  border: 1px solid rgba(200, 32, 45, 0.4);
+  box-shadow: 0 4px 12px rgba(200, 32, 45, 0.2);
+}
+
+.cert-logo-box svg {
+  width: 26px;
+  height: 26px;
+}
+
+.ticker-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* ==========================================================================
    BOTONES CON EFECTO DE LUZ DESLIZANTE (SHIMMER GLEAM)
    ========================================================================== */
 .btn {
@@ -1245,8 +1346,22 @@ section {
 .skill-item-info {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 0.86rem;
   font-weight: 600;
+}
+
+.skill-item-info span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.skill-item-info svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  vertical-align: middle;
 }
 
 .skill-progress-bg {
@@ -1610,6 +1725,13 @@ section {
   color: var(--text-main);
   transform: translateY(-4px) scale(1.04);
   box-shadow: 0 4px 15px rgba(0, 210, 255, 0.25);
+}
+
+.course-chip svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  vertical-align: middle;
 }
 
 /* ==========================================================================
